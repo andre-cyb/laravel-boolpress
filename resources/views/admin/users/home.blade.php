@@ -22,10 +22,22 @@
         </div>
         <div class="col-8 border border-2">
             <h2 class="py-4">Utenti registrati </h2>
+            @if (session('status'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('status') }}
+                </div>
+            @endif
             
             <ul class="text-left list-group">
                 @foreach ($usersList as $user)
-                <li class="list-group-item">{{ $user->name }} - {{ $user->email }}</li>
+                <li class="list-group-item d-flex justify-content-between">
+                    <div>
+                        {{ $user->name }} - {{ $user->email }}
+                    </div>
+                    <div>
+                        <a href="{{ route("admin.users.edit", $user->id) }}" class="btn btn-link">Modifica</a>
+                    </div>
+                </li>
                     
                 @endforeach
             </ul>
