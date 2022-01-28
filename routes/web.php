@@ -14,9 +14,7 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
@@ -27,5 +25,10 @@ Route::namespace('Admin')
         ->middleware('auth')
         ->group(function () {
             Route::get('/', 'HomeController@index')->name('home');
+            Route::resource("users", "UserController");
             Route::resource("posts", "PostController");
-        });
+});
+
+Route::get('{any?}', function () {
+    return view('welcome');
+})->where("any", ".*")->name("home");
