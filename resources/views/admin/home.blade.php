@@ -35,7 +35,9 @@
 
         </div>
         <div class="col-8 border border-2">
-            <h2 class="py-4">Area personale</h2>
+            <h1 class="py-4">Benvenuto {{ Auth::User()->name }}</h1>
+            <h2 >Area personale</h2>
+
         </div>
     </div>
 </div>

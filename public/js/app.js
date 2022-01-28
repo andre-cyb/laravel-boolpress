@@ -37594,7 +37594,7 @@ var render = function () {
   return _c(
     "div",
     [
-      _c("h1", { staticClass: "text-center" }, [_vm._v("benvenuto")]),
+      _c("h1", { staticClass: "text-center py-3" }, [_vm._v("Tutti i Post")]),
       _vm._v(" "),
       _vm._l(_vm.postsList, function (post) {
         return _c("Post", { key: post.id, attrs: { post: post } })

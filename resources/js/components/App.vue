@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-center">benvenuto</h1>
+    <h1 class="text-center py-3">Tutti i Post</h1>
     <Post v-for="post in postsList" :key="post.id" :post="post"></Post>
     <ul></ul>
   </div>

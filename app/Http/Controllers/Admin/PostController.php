@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Post;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
 {
@@ -27,7 +28,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view("admin.posts.create");
     }
 
     /**
@@ -38,7 +39,14 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /* $data = $request->all(); */
+        /* dd($data); */
+        $newPost = new Post();
+        $newPost->fill($request->all());
+        $newPost->author_id = Auth::User()->id;
+        $newPost->save();
+
+        return redirect()->route("admin.posts.index", $newPost->id);
     }
 
     /**
@@ -81,8 +89,9 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect()->route("admin.posts.index")->with(["status" => "Post cancellato correttamente"]);
     }
 }
