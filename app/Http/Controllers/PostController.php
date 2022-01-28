@@ -11,7 +11,7 @@ class PostController extends Controller
         [
             "userId" => 1, 
             "id" => 1, 
-            "title" => "sunt aut facere repellat provident occaecati excepturi optio reprehenderit", 
+            "title" => "primo post dal controller", 
             "body" => "quia et suscipit
             suscipit recusandae consequuntur expedita et cum
             reprehenderit molestiae ut ut quas totam
@@ -20,7 +20,7 @@ class PostController extends Controller
         [
             "userId" => 1, 
             "id" => 2, 
-            "title" => "qui est esse", 
+            "title" => "fuori ormai è buio", 
             "body" => "est rerum tempore vitae
             sequi sint nihil reprehenderit dolor beatae ea dolores neque
             fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis
@@ -29,7 +29,7 @@ class PostController extends Controller
         [
             "userId" => 1, 
             "id" => 3, 
-            "title" => "ea molestias quasi exercitationem repellat qui ipsa sit aut", 
+            "title" => "devo finire entro domenica", 
             "body" => "et iusto sed quo iure
             voluptatem occaecati omnis eligendi aut ad
             voluptatem doloribus vel accusantium quis pariatur
@@ -38,7 +38,7 @@ class PostController extends Controller
         [
             "userId" => 1, 
             "id" => 4, 
-            "title" => "eum et est occaecati", 
+            "title" => "il progetto finale sarà difficile", 
             "body" => "ullam et saepe reiciendis voluptatem adipisci
             sit amet autem assumenda provident rerum culpa
             quis hic commodi nesciunt rem tenetur doloremque ipsam iure
@@ -47,7 +47,7 @@ class PostController extends Controller
         [
             "userId" => 1, 
             "id" => 5, 
-            "title" => "nesciunt quas odio", 
+            "title" => "non ci saranno ticket", 
             "body" => "repudiandae veniam quaerat sunt sed
             alias aut fugiat sit autem sed est
             voluptatem omnis possimus esse voluptatibus quis
@@ -56,7 +56,7 @@ class PostController extends Controller
         [
             "userId" => 1, 
             "id" => 6, 
-            "title" => "dolorem eum magni eos aperiam quia", 
+            "title" => "ma ce la faremo", 
             "body" => "ut aspernatur corporis harum nihil quis provident sequi
             mollitia nobis aliquid molestiae
             perspiciatis et ea nemo ab reprehenderit accusantium quas
