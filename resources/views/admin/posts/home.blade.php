@@ -37,13 +37,20 @@
             <ul class="text-left list-group ">
                 @foreach ($postsList as $post)
                 <li class="list-group-item d-flex justify-content-between">
-                    <span>{{ $post->title }}</span>
-                    {{-- <a href="{{ route("admin.posts.destroy", $post->id) }}" class="btn btn-link text-danger">Elimina</a> --}}
-                    <form action="{{ route("admin.posts.destroy", $post->id) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <input class="btn btn-danger" type="submit" value="Elimina">
-                    </form>
+                    <div>
+                        <span>{{ $post->title }}</span>
+                        <small class="d-block">Creato da {{ $post->user->name }}</small>
+                    </div>
+                    <div>
+                        <button class="btn btn-secondary my-2"><a class=" text-white " href="{{ route("admin.posts.edit", $post->id) }}" >Modifica</a></button>
+                        
+                        <form action="{{ route("admin.posts.destroy", $post->id) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <input class="btn btn-danger" type="submit" value="Elimina">
+                        </form>
+                    </div>
+                    
                 </li>
                     
                 @endforeach
