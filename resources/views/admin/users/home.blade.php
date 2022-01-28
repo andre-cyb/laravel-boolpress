@@ -23,6 +23,13 @@
         <div class="col-8 border border-2">
             <h2 class="py-4">Utenti registrati </h2>
             
+            <ul class="text-left list-group">
+                @foreach ($usersList as $user)
+                <li class="list-group-item">{{ $user->name }} - {{ $user->email }}</li>
+                    
+                @endforeach
+            </ul>
+
         </div>
     </div>
 </div>
