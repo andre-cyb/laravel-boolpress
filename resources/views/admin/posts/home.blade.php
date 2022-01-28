@@ -23,6 +23,13 @@
         <div class="col-8 border border-2">
             <h2 class="py-4">Tutti i post </h2>
             
+            <ul class="text-left list-group">
+                @foreach ($postsList as $post)
+                <li class="list-group-item">{{ $post->title }}</li>
+                    
+                @endforeach
+            </ul>
+
         </div>
     </div>
 </div>
