@@ -25,7 +25,11 @@
   </div>
   <div class="mb-3">
     <label for="category" class="form-label">Categoria</label>
-    <input type="text" class="form-control" id="category" name="category">
+    <select name="category_id" class="form-control">
+      @foreach ($categories as $category)
+        <option value="{{ $category->id }}">{{ $category->name }}</option>   
+      @endforeach
+    </select>
   </div>
   
   <div class="text-center">

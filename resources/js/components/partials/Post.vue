@@ -1,10 +1,11 @@
 <template>
   <div>
-    <h3>{{ post.title }}</h3>
-    <p>{{ post.body }}</p>
-    <!-- <small>{{ post.author }}</small> -->
-
-    <ul></ul>
+    <div class="container">
+      <div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+      </div>
+    </div>
   </div>
 </template>
 <script>

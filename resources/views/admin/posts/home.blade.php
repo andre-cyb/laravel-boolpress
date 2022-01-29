@@ -21,9 +21,9 @@
 
         </div>
         <div class="col-8 border border-2">
-            <div class="d-flex justify-content-around align-items-center py-4">
-                <h2 class="">Tutti i post </h2>
-                <button class="btn btn-primary text-white">
+            <div class=" text-center py-4">
+                <h2 class="mb-5">Tutti i post </h2>
+                <button class="row btn btn-primary text-white">
                     <a class="text-white"  href="{{ route("admin.posts.create") }}">Crea post</a>
                 </button>
             </div>
@@ -41,13 +41,14 @@
                         <span>{{ $post->title }}</span>
                         <small class="d-block"> {{ $post->updated_at }} | <strong>Creato da {{ $post->user->name }}</strong> </small>
                     </div>
-                    <div>
-                        <button class="btn btn-secondary my-2"><a class=" text-white " href="{{ route("admin.posts.edit", $post->id) }}" >Modifica</a></button>
+                    <div class="d-flex justify-content-between">
+                        <button class="btn btn-success m-2"><a class=" text-white " href="{{ route("admin.posts.show", $post->id) }}" >Visualizza</a></button>
+                        <button class="btn btn-secondary m-2"><a class=" text-white " href="{{ route("admin.posts.edit", $post->id) }}" >Modifica</a></button>
                         
-                        <form action="{{ route("admin.posts.destroy", $post->id) }}" method="post">
+                        <form  action="{{ route("admin.posts.destroy", $post->id) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <input class="btn btn-danger" type="submit" value="Elimina">
+                            <input class="btn btn-danger m-2" type="submit" value="Elimina">
                         </form>
                     </div>
                     
