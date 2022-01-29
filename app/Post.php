@@ -11,11 +11,15 @@ class Post extends Model
         'subtitle',
         'content',
         'coverImg',
-        'category',
+        'category_id',
         
       ];
 
-      public function user(){
-        return $this->belongsTo("App\User", "author_id", "id");
+    public function user(){
+      return $this->belongsTo("App\User", "author_id", "id");
+    }
+      
+    public function category(){
+      return $this->belongsTo("App\Category", "category_id", "id");
     }
 }

@@ -26,7 +26,12 @@
   </div>
   <div class="mb-3">
     <label for="category" class="form-label">Categoria</label>
-    <input type="text" class="form-control" id="category" name="category"value="{{ $post->category }}">
+    <select name="category_id" class="form-control">
+      @foreach ($categories as $category)
+        <option value="{{ $category->id }}" @if ( $category->id === $post->category_id)
+          selected @endif>{{ $category->name }}</option>   
+      @endforeach
+    </select>
   </div>
   
   <div class="text-center">

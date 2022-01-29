@@ -1989,6 +1989,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   name: "Post",
@@ -37675,11 +37676,13 @@ var render = function () {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h3", [_vm._v(_vm._s(_vm.post.title))]),
-    _vm._v(" "),
-    _c("p", [_vm._v(_vm._s(_vm.post.body))]),
-    _vm._v(" "),
-    _c("ul"),
+    _c("div", { staticClass: "container" }, [
+      _c("div", [
+        _c("h3", [_vm._v(_vm._s(_vm.post.title))]),
+        _vm._v(" "),
+        _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+      ]),
+    ]),
   ])
 }
 var staticRenderFns = []
