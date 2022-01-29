@@ -37680,7 +37680,7 @@ var render = function () {
       _c("div", [
         _c("h3", [_vm._v(_vm._s(_vm.post.title))]),
         _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.post.content))]),
+        _c("p", [_vm._v(_vm._s(_vm.post.body))]),
       ]),
     ]),
   ])

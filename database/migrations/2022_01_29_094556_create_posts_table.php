@@ -19,7 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('subtitle')->nullable(true);
             $table->longtext('content')->nullable(false);
             $table->string('coverImg')->nullable(true);
-            $table->string('category')->nullable(true);
+            
 
             
 

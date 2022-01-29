@@ -73,7 +73,10 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $data = $request->all();
+
+        
         $user->update($data);
+        $user->userInfo()->updateOrCreate(["user_id"=> $user->id], $data["userInfo"]);
         return redirect()->route("admin.users.index")->with(["status"=>"Dati aggiornati correttamente"]);
     }
 

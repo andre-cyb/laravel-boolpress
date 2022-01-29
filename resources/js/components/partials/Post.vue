@@ -3,7 +3,7 @@
     <div class="container">
       <div>
         <h3>{{ post.title }}</h3>
-        <p>{{ post.content }}</p>
+        <p>{{ post.body }}</p>
       </div>
     </div>
   </div>

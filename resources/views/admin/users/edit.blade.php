@@ -32,7 +32,7 @@
         </div>
         <div class="form-group">
             <label class="form-label">Telefono</label>
-            <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ $user->phone }}" required autocomplete="phone">
+            <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="userInfo[phone]" value="{{$user->userInfo ? $user->userInfo->phone : ''}}" required autocomplete="phone">
             
             @error('phone')
             <span class="invalid-feedback" role="alert">
@@ -43,7 +43,7 @@
         </div>
         <div class="form-group">
             <label class="form-label">Indirizzo</label>
-            <input id="address" type="address" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ $user->address }}" required autocomplete="address">
+            <input id="address" type="address" class="form-control @error('address') is-invalid @enderror" name="userInfo[address]" value="{{$user->userInfo ? $user->userInfo->address : ''}}" required autocomplete="address">
             
             @error('address')
             <span class="invalid-feedback" role="alert">

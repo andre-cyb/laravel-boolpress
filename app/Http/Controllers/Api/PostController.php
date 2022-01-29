@@ -9,9 +9,12 @@ use App\Post;
 class PostController extends Controller
 {
     function index(){
-    $posts = Post::all();
-
-    
+        $posts = Post::all();
+            
+        foreach ($posts as $post) {
+            $cuttedBody = strip_tags($post->content);
+            $post["body"] = strlen($cuttedBody) > 100 ? substr($cuttedBody, 0, 100) . "..." : $cuttedBody;
+        }
         return $posts;
     }
 }
