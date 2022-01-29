@@ -21,8 +21,10 @@ class CreatePostsTable extends Migration
             $table->string('coverImg')->nullable(true);
             $table->string('category')->nullable(true);
 
-            $table->unsignedBigInteger('author_id')
-                ->foreignId('author_id')
+            
+
+            $table->unsignedBigInteger('author_id');
+            $table->foreign('author_id')
                 ->references('id')
                 ->on('users');
 

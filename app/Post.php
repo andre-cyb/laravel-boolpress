@@ -11,7 +11,8 @@ class Post extends Model
         'subtitle',
         'content',
         'coverImg',
-        'category'
+        'category',
+        
       ];
 
       public function user(){

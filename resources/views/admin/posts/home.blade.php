@@ -39,7 +39,7 @@
                 <li class="list-group-item d-flex justify-content-between">
                     <div>
                         <span>{{ $post->title }}</span>
-                        <small class="d-block">Creato da {{ $post->user->name }}</small>
+                        <small class="d-block"> {{ $post->updated_at }} | <strong>Creato da {{ $post->user->name }}</strong> </small>
                     </div>
                     <div>
                         <button class="btn btn-secondary my-2"><a class=" text-white " href="{{ route("admin.posts.edit", $post->id) }}" >Modifica</a></button>

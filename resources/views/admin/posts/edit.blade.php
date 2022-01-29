@@ -18,7 +18,7 @@
   </div>
   <div class="mb-3">
     <label for="content" class="form-label">Contenuto</label>
-    <textarea type="text" class="form-control" id="content" name="content" rows="3"value="{{ $post->content }}"></textarea>
+    <textarea type="text" class="form-control" id="content" name="content" rows="3">{{ $post->content }}</textarea>
   </div>
   <div class="mb-3">
     <label for="coverImg" class="form-label">Immagine</label>
