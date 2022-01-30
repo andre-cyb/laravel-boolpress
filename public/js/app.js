@@ -1908,58 +1908,18 @@ module.exports = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_partials_Post_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/partials/Post.vue */ "./resources/js/components/partials/Post.vue");
 //
 //
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
 /* harmony default export */ __webpack_exports__["default"] = ({
-  components: {
-    Post: _components_partials_Post_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
-  },
+  components: {},
   name: "app",
-  data: function data() {
-    return {
-      postsList: [],
-      currentPage: 1,
-      lastPage: null
-    };
-  },
-  methods: {
-    getData: function getData() {
-      var _this = this;
-
-      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      window.axios.get("/api/posts?page=" + page).then(function (resp) {
-        _this.postsList = resp.data.data;
-        _this.currentPage = resp.data.current_page;
-        _this.lastPage = resp.data.last_page;
-      });
-    }
-  },
+  methods: {},
   mounted: function mounted() {
-    this.getData();
+    console.log(this.$router);
+    console.log(this.$route);
   }
 });
 
@@ -2076,13 +2036,59 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_partials_Post_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../components/partials/Post.vue */ "./resources/js/components/partials/Post.vue");
 //
 //
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 /* harmony default export */ __webpack_exports__["default"] = ({
-  setup: function setup() {}
+  components: {
+    Post: _components_partials_Post_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  data: function data() {
+    return {
+      postsList: [],
+      currentPage: 1,
+      lastPage: null
+    };
+  },
+  methods: {
+    getData: function getData() {
+      var _this = this;
+
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      window.axios.get("/api/posts?page=" + page).then(function (resp) {
+        _this.postsList = resp.data.data;
+        _this.currentPage = resp.data.current_page;
+        _this.lastPage = resp.data.last_page;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getData();
+  }
 });
 
 /***/ }),
@@ -38338,80 +38344,7 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("h1", { staticClass: "text-center py-3" }, [_vm._v("Tutti i Post")]),
-    _vm._v(" "),
-    _c("div", { staticClass: "container" }, [
-      _c(
-        "div",
-        { staticClass: "row" },
-        _vm._l(_vm.postsList, function (post) {
-          return _c("Post", { key: post.id, attrs: { post: post } })
-        }),
-        1
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "my-3 d-flex justify-content-center" }, [
-        _c("nav", [
-          _c(
-            "ul",
-            { staticClass: "pagination" },
-            [
-              _c("li", { staticClass: "page-item" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "page-link",
-                    on: {
-                      click: function ($event) {
-                        return _vm.getData(_vm.currentPage - 1)
-                      },
-                    },
-                  },
-                  [_vm._v("Previous")]
-                ),
-              ]),
-              _vm._v(" "),
-              _vm._l(_vm.lastPage, function (page) {
-                return _c("li", { key: page, staticClass: "page-item" }, [
-                  _c(
-                    "a",
-                    {
-                      staticClass: "page-link",
-                      on: {
-                        click: function ($event) {
-                          return _vm.getData(page)
-                        },
-                      },
-                    },
-                    [_vm._v(_vm._s(page))]
-                  ),
-                ])
-              }),
-              _vm._v(" "),
-              _c("li", { staticClass: "page-item" }, [
-                _c(
-                  "a",
-                  {
-                    staticClass: "page-link",
-                    on: {
-                      click: function ($event) {
-                        return _vm.getData(_vm.currentPage + 1)
-                      },
-                    },
-                  },
-                  [_vm._v("next")]
-                ),
-              ]),
-            ],
-            2
-          ),
-        ]),
-      ]),
-    ]),
-    _vm._v(" "),
-    _c("ul"),
-  ])
+  return _c("div", [_c("router-view")], 1)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -38576,16 +38509,82 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h1", { staticClass: "text-center py-3" }, [_vm._v("Tutti i Post")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.postsList, function (post) {
+          return _c("Post", { key: post.id, attrs: { post: post } })
+        }),
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "my-3 d-flex justify-content-center" }, [
+        _c("nav", [
+          _c(
+            "ul",
+            { staticClass: "pagination" },
+            [
+              _c("li", { staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    on: {
+                      click: function ($event) {
+                        return _vm.getData(_vm.currentPage - 1)
+                      },
+                    },
+                  },
+                  [_vm._v("Previous")]
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.lastPage, function (page) {
+                return _c("li", { key: page, staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getData(page)
+                        },
+                      },
+                    },
+                    [_vm._v(_vm._s(page))]
+                  ),
+                ])
+              }),
+              _vm._v(" "),
+              _c("li", { staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    on: {
+                      click: function ($event) {
+                        return _vm.getData(_vm.currentPage + 1)
+                      },
+                    },
+                  },
+                  [_vm._v("next")]
+                ),
+              ]),
+            ],
+            2
+          ),
+        ]),
+      ]),
+    ]),
+    _vm._v(" "),
+    _c("ul"),
+  ])
 }
-var staticRenderFns = [
-  function () {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("Homepage")])])
-  },
-]
+var staticRenderFns = []
 render._withStripped = true
 
 
@@ -54003,14 +54002,15 @@ module.exports = function(module) {
 /*!******************************!*\
   !*** ./resources/js/App.vue ***!
   \******************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _App_vue_vue_type_template_id_f348271a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./App.vue?vue&type=template&id=f348271a& */ "./resources/js/App.vue?vue&type=template&id=f348271a&");
 /* harmony import */ var _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./App.vue?vue&type=script&lang=js& */ "./resources/js/App.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _App_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -54040,7 +54040,7 @@ component.options.__file = "resources/js/App.vue"
 /*!*******************************************************!*\
   !*** ./resources/js/App.vue?vue&type=script&lang=js& ***!
   \*******************************************************/
-/*! exports provided: default */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -54547,7 +54547,7 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]);
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   mode: "history",
-  route: [{
+  routes: [{
     path: "/",
     name: "home",
     component: _pages_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
