@@ -39,7 +39,7 @@
                 <li class="list-group-item d-flex justify-content-between">
                     <div>
                         <span>{{ $post->title }}</span>
-                        <small class="d-block"> {{ $post->updated_at }} | <strong>Creato da {{ $post->user->name }}</strong> </small>
+                        <small class="d-block"> {{ $post->updated_at->format("d/m/Y h:i") }} | <strong>Creato da {{ $post->user->name }}</strong> </small>
                     </div>
                     <div class="d-flex justify-content-between">
                         <button class="btn btn-success m-2"><a class=" text-white " href="{{ route("admin.posts.show", $post->id) }}" >Visualizza</a></button>
@@ -56,6 +56,11 @@
                     
                 @endforeach
             </ul>
+
+            <div class="my-3 d-flex justify-content-center">
+                <span>{{ $postsList->links() }}</span>
+
+            </div>
 
         </div>
     </div>

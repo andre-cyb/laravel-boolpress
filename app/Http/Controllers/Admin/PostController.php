@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Post;
 use App\Tag;
 use App\Category;
+use Carbon\Carbon;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +19,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $postsList = Post::all();
-
+        $postsList = Post::paginate(3);
         return view("admin.posts.home", compact("postsList"));
     }
 
@@ -105,6 +105,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        $post->tags()->detach();
         $post->delete();
         return redirect()->route("admin.posts.index")->with(["status" => "Post cancellato correttamente"]);
     }
