@@ -23,7 +23,7 @@
   </div>
 </template>
 <script>
-import Post from "./partials/Post.vue";
+import Post from "./components/partials/Post.vue";
 
 export default {
   components: { Post },
