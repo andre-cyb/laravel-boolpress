@@ -33,6 +33,15 @@
       @endforeach
     </select>
   </div>
+  <div class="mb-3">
+    <label for="tag" class="form-label">Tags</label>
+    <select name="tags[]" class="form-control" multiple>
+      @foreach ($tags as $tag)
+        <option value="{{ $tag->id }}" >{{ $tag->name }}</option>  {{-- @if ( $tag->id === $post->tag_id)
+          selected @endif --}} 
+      @endforeach
+    </select>
+  </div>
   
   <div class="text-center">
     <button type="submit" class="btn btn-success">Salva</button>
