@@ -1920,6 +1920,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1928,15 +1941,25 @@ __webpack_require__.r(__webpack_exports__);
   name: "app",
   data: function data() {
     return {
-      postsList: []
+      postsList: [],
+      currentPage: 1,
+      lastPage: null
     };
   },
-  mounted: function mounted() {
-    var _this = this;
+  methods: {
+    getData: function getData() {
+      var _this = this;
 
-    window.axios.get("/api/posts").then(function (resp) {
-      _this.postsList = resp.data;
-    });
+      var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
+      window.axios.get("/api/posts?page=" + page).then(function (resp) {
+        _this.postsList = resp.data.data;
+        _this.currentPage = resp.data.current_page;
+        _this.lastPage = resp.data.last_page;
+      });
+    }
+  },
+  mounted: function mounted() {
+    this.getData();
   }
 });
 
@@ -38267,6 +38290,64 @@ var render = function () {
         }),
         1
       ),
+      _vm._v(" "),
+      _c("div", { staticClass: "my-3 d-flex justify-content-center" }, [
+        _c("nav", [
+          _c(
+            "ul",
+            { staticClass: "pagination" },
+            [
+              _c("li", { staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    on: {
+                      click: function ($event) {
+                        return _vm.getData(_vm.currentPage - 1)
+                      },
+                    },
+                  },
+                  [_vm._v("Previous")]
+                ),
+              ]),
+              _vm._v(" "),
+              _vm._l(_vm.lastPage, function (page) {
+                return _c("li", { key: page, staticClass: "page-item" }, [
+                  _c(
+                    "a",
+                    {
+                      staticClass: "page-link",
+                      on: {
+                        click: function ($event) {
+                          return _vm.getData(page)
+                        },
+                      },
+                    },
+                    [_vm._v(_vm._s(page))]
+                  ),
+                ])
+              }),
+              _vm._v(" "),
+              _c("li", { staticClass: "page-item" }, [
+                _c(
+                  "a",
+                  {
+                    staticClass: "page-link",
+                    on: {
+                      click: function ($event) {
+                        return _vm.getData(_vm.currentPage + 1)
+                      },
+                    },
+                  },
+                  [_vm._v("next")]
+                ),
+              ]),
+            ],
+            2
+          ),
+        ]),
+      ]),
     ]),
     _vm._v(" "),
     _c("ul"),
