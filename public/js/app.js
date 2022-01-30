@@ -1916,6 +1916,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {
@@ -1980,6 +1984,26 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -37592,19 +37616,22 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    [
-      _c("h1", { staticClass: "text-center py-3" }, [_vm._v("Tutti i Post")]),
-      _vm._v(" "),
-      _vm._l(_vm.postsList, function (post) {
-        return _c("Post", { key: post.id, attrs: { post: post } })
-      }),
-      _vm._v(" "),
-      _c("ul"),
-    ],
-    2
-  )
+  return _c("div", [
+    _c("h1", { staticClass: "text-center py-3" }, [_vm._v("Tutti i Post")]),
+    _vm._v(" "),
+    _c("div", { staticClass: "container" }, [
+      _c(
+        "div",
+        { staticClass: "row" },
+        _vm._l(_vm.postsList, function (post) {
+          return _c("Post", { key: post.id, attrs: { post: post } })
+        }),
+        1
+      ),
+    ]),
+    _vm._v(" "),
+    _c("ul"),
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -37675,17 +37702,43 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("div", { staticClass: "container" }, [
-      _c("div", [
-        _c("h3", [_vm._v(_vm._s(_vm.post.title))]),
-        _vm._v(" "),
-        _c("p", [_vm._v(_vm._s(_vm.post.body))]),
-      ]),
-    ]),
-  ])
+  return _vm._m(0)
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function () {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c("div", { staticClass: "g-2" }, [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "card", staticStyle: { width: "18rem" } }, [
+            _c("img", {
+              staticClass: "card-img-top",
+              attrs: { src: "post.coverImg", alt: "..." },
+            }),
+            _vm._v(" "),
+            _c("div", { staticClass: "card-body" }, [
+              _c("h5", { staticClass: "card-title" }, [_vm._v("Card title")]),
+              _vm._v(" "),
+              _c("p", { staticClass: "card-text" }, [
+                _vm._v(
+                  "\n            Some quick example text to build on the card title and make up the\n            bulk of the card's content.\n          "
+                ),
+              ]),
+              _vm._v(" "),
+              _c(
+                "a",
+                { staticClass: "btn btn-primary", attrs: { href: "#" } },
+                [_vm._v("Go somewhere")]
+              ),
+            ]),
+          ]),
+        ]),
+      ]),
+    ])
+  },
+]
 render._withStripped = true
 
 

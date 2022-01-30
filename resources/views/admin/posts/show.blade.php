@@ -9,7 +9,7 @@
   <h1>{{ $post->title }}</h1>
   <small class="d-block"> {{ $post->updated_at }} | <strong>Creato da {{ $post->user->name }}</strong> </small>
   <span class="badge rounded-pill bg-primary p-2 text-white ">{{ $post->category->name }}</span>
-  @foreach ($tags as $tag)
+  @foreach ($post->tags as $tag)
   <span class="badge rounded-pill bg-success p-2 text-white ">
       {{ $tag->name }}
       {{-- {{ $post->tags }} --}}</span>

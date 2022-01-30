@@ -24,6 +24,7 @@
     <label for="coverImg" class="form-label">Immagine</label>
     <input type="text" class="form-control" id="coverImg" name="coverImg"value="{{ $post->coverImg }}">
   </div>
+
   <div class="mb-3">
     <label for="category" class="form-label">Categoria</label>
     <select name="category_id" class="form-control">
@@ -33,15 +34,26 @@
       @endforeach
     </select>
   </div>
-  <div class="mb-3">
-    <label for="tag" class="form-label">Tags</label>
-    <select name="tags[]" class="form-control" multiple>
-      @foreach ($tags as $tag)
-        <option value="{{ $tag->id }}" >{{ $tag->name }}</option>  {{-- @if ( $tag->id === $post->tag_id)
-          selected @endif --}} 
+  
+  <div class="form-check">
+    <label for="category" class="form-label">Tags</label>
+
+    @foreach ($tags as $tag)
+          @php
+              $hasTag = $post->tags->where("id", $tag->id)->count();
+              
+          @endphp
+    <div>
+      <input class="form-check-input" name="tags[]"  type="checkbox" value="{{ $tag->id }}" id="flexCheckDefault" @if ($hasTag)
+      checked @endif>
+      
+      <label class="form-check-label" for="flexCheckDefault">
+        {{ $tag->name }}
+      </label>
+    </div>
       @endforeach
-    </select>
-  </div>
+
+  </div> 
   
   <div class="text-center">
     <button type="submit" class="btn btn-success">Salva</button>

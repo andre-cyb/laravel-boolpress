@@ -31,6 +31,17 @@
       @endforeach
     </select>
   </div>
+  <div class="form-check">
+    <label for="category" class="form-label">Tags</label>
+    @foreach ($tags as $tag)
+      <div>
+        <input class="form-check-input" name="tags[]"  type="checkbox" value="{{ $tag->id }}" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          {{ $tag->name }}
+        </label>
+      </div>
+    @endforeach
+  </div> 
   
   <div class="text-center">
     <button type="submit" class="btn btn-success">Crea</button>

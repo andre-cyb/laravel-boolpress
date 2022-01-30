@@ -9,7 +9,7 @@ use App\Post;
 class PostController extends Controller
 {
     function index(){
-        $posts = Post::all();
+        $posts = Post::with("category")->get();
             
         foreach ($posts as $post) {
             $cuttedBody = strip_tags($post->content);

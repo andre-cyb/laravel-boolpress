@@ -43,12 +43,13 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        /* $data = $request->all(); */
+        $data = $request->all();
         /* dd($data); */
         $newPost = new Post();
         $newPost->fill($request->all());
         $newPost->author_id = Auth::User()->id;
         $newPost->save();
+        $newPost->tags()->sync($data["tags"]);
 
         return redirect()->route("admin.posts.show", $newPost->id);
     }
@@ -61,8 +62,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        $tags = Tag::all();
-        return view("admin.posts.show", ["post"=>$post, "tags"=>$tags]);
+        /* $tags = Tag::all(); */
+        return view("admin.posts.show", ["post"=>$post]);
     }
 
     /**
@@ -89,9 +90,9 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $data = $request->all();
-        $post->update($data);
-
+        /* dd($data["tags"]); */
         $post->tags()->sync($data["tags"]);
+        $post->update($data);
 
         return redirect()->route("admin.posts.show", $post->id);
     }
