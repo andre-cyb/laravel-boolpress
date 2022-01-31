@@ -48,10 +48,16 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-        /* dd($data); */
+        /* dd($data["coverImg"]); */
         $newPost = new Post();
         $newPost->fill($request->all());
         $newPost->author_id = Auth::User()->id;
+
+        if($request->file("coverImg")){
+            $newPost->coverImg = Storage::put("upload", $data["coverImg"]);
+        }
+
+
         $newPost->save();
         $newPost->tags()->sync($data["tags"]);
 
@@ -98,9 +104,9 @@ class PostController extends Controller
         if(key_exists("tags", $data)){
             $post->tags()->sync($data["tags"]);
         }
+        $oldImg = $post->coverImg;
         $post->update($data);
         
-        $oldImg = $post->coverImg;
         
         if ($request->file("coverImg")) {
             if ($oldImg) {
@@ -109,6 +115,7 @@ class PostController extends Controller
             }
             $post->coverImg = Storage::put("upload", $data["coverImg"]);
         };
+        $post->save();
 
 
         return redirect()->route("admin.posts.show", $post->id);

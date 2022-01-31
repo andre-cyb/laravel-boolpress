@@ -14,7 +14,7 @@
       {{ $tag->name }}
       {{-- {{ $post->tags }} --}}</span>
   @endforeach
-  <img class="py-5 d-block" src="{{ $post->coverImg }}" alt="immagine post">
+  <img class="py-5 d-block" src="{{ asset("storage/". $post->coverImg)  }}" alt="immagine post">
 
   <p class="">{{ $post->content }}</p>
 

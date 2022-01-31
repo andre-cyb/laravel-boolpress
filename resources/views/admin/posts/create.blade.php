@@ -22,7 +22,7 @@
   </div>
   <div class="mb-3">
     <label for="coverImg" class="form-label">Immagine</label>
-    <input class="form-control" type="file" id="coverImg" name="coverImg" value="{{ $post->coverImg }}">
+    <input class="form-control" type="file" id="coverImg" name="coverImg" value="{{ old("coverImg") }}">
   </div>
   <div class="mb-3">
     <label for="category" class="form-label">Categoria</label>

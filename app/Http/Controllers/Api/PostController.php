@@ -15,6 +15,8 @@ class PostController extends Controller
             $cuttedBody = strip_tags($post->content);
             $post["body"] = strlen($cuttedBody) > 100 ? substr($cuttedBody, 0, 100) . "..." : $cuttedBody;
         }
+        $post->coverImg = "/storage/" . $post->coverImg;
+
         return $posts;
     }
 }

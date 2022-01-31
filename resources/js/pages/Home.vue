@@ -3,7 +3,7 @@
         
         <h1 class="text-center py-3">Tutti i Post</h1>
         <div class="container">
-        <div class="row">
+        <div class="row row-height">
             <Post v-for="post in postsList" :key="post.id" :post="post"></Post>
         </div>
         <div class="my-3 d-flex justify-content-center">
@@ -52,5 +52,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-
+    .row-height{
+        height: 500px;
+    }
 </style>
