@@ -5,7 +5,8 @@
 
 <div class="container">
 
-  <form action="{{route('admin.posts.store')}}" method="post">
+  <form action="{{route('admin.posts.store')}}" method="post" enctype="multipart/form-data">
+  
   @csrf
   <div class="mb-3">
     <label for="title" class="form-label">Titolo</label>
@@ -21,7 +22,7 @@
   </div>
   <div class="mb-3">
     <label for="coverImg" class="form-label">Immagine</label>
-    <input type="text" class="form-control" id="coverImg" name="coverImg">
+    <input class="form-control" type="file" id="coverImg" name="coverImg" value="{{ $post->coverImg }}">
   </div>
   <div class="mb-3">
     <label for="category" class="form-label">Categoria</label>

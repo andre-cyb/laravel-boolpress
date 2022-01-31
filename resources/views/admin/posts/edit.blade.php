@@ -5,7 +5,7 @@
 
 <div class="container">
 
-  <form action="{{route('admin.posts.update', $post->id)}}" method="post">
+  <form action="{{route('admin.posts.update', $post->id)}}" method="post" enctype="multipart/form-data">
   @csrf
   @method("patch")
   <div class="mb-3">
@@ -22,7 +22,7 @@
   </div>
   <div class="mb-3">
     <label for="coverImg" class="form-label">Immagine</label>
-    <input type="text" class="form-control" id="coverImg" name="coverImg"value="{{ $post->coverImg }}">
+    <input class="form-control" type="file" id="coverImg" name="coverImg" value="{{ $post->coverImg }}">
   </div>
 
   <div class="mb-3">
